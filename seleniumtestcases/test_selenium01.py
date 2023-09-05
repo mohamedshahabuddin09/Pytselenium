@@ -5,7 +5,7 @@ from selenium import webdriver
 @pytest.fixture()
 def driver():
     driver = webdriver.Chrome()
-    return driver
+    yield driver
 
 
 def test_open_url_verify_title(driver):
