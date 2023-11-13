@@ -67,13 +67,13 @@ def test_vwologin():
 
     sign_in_button_ele.click()
 
-    time.sleep(5)
+    time.sleep(10)
 
     # There is delay for 2-3
     LOGGER.info('title is ->  ' + driver.title)
     assert "Dashboard" in driver.title
 
-    driver.refresh()
-    driver.get("https://sdet.live")
-    driver.back()
-    driver.forward()
+    # driver.refresh()
+    # driver.get("https://sdet.live")
+    # driver.back()
+    # driver.forward()

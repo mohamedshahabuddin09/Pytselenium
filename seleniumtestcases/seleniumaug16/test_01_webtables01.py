@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 
 def test_web_tables():
-    driver = webdriver.Firefox()
+    driver = webdriver.Chrome()
     driver.get("https://awesomeqa.com/webtable.html")
     # driver.maximize_window()
 
@@ -20,11 +20,11 @@ def test_web_tables():
     col = len(col_elements)
     print(col)
 
-    # FP - //table[contains(@id,"cust")]/tbody/tr[
+    # FP(First Part) - //table[contains(@id,"cust")]/tbody/tr[
     # 7 - i ( 2,7)
-    # SP - ]/td[
+    # SP(Second Part) - ]/td[
     # 3 - j ( 1,3)
-    # TP - ]
+    # TP(Third Part) - ]
 
 
     # //div[@role='table']/div[2]/div[9]/div[1]/div[4]
@@ -49,6 +49,7 @@ def test_web_tables():
         for j in range(1, col + 1):
             dynamic_path = f"{first_part}{i}{second_part}{j}{third_part}"
             data = driver.find_element(By.XPATH, dynamic_path).text
+            #print(data)
             if "Helen Bennett" in data:
                 country_path = f"{dynamic_path}/following-sibling::td"
                 country_text = driver.find_element(By.XPATH, country_path).text
@@ -56,6 +57,8 @@ def test_web_tables():
 
     #Find Helen Bennett's country
 
+
+#Dynamic webelement
     driver.get("https://awesomeqa.com/webtable1.html")
     # Get the table
     table = driver.find_element(By.XPATH, "//table[@summary='Sample Table']/tbody")
